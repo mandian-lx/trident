@@ -62,6 +62,12 @@ cp %{SOURCE1} pom.xml
 %pom_remove_dep com.google.android:android
 %pom_remove_dep org.eclipse.swt.gtk.linux:
 
+# Alias
+%mvn_alias org.pushingpixels:%{name} org.pushing-pixels:%{name}
+
+# Fix jar name
+%mvn_file :%{name} %{name}
+
 %build
 export CLASSPATH=$(build-classpath swt)
 %ant -Djdk.home=/usr -Dfile.encoding=UTF-8
@@ -80,9 +86,6 @@ popd
 
 # maven artifact installation
 %mvn_artifact pom.xml www/webstart/%{name}.jar
-
-# Fix jar name
-%mvn_file :%{name} %{name}
 
 %install
 %mvn_install -J doc
