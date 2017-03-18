@@ -63,7 +63,7 @@ cp %{SOURCE1} pom.xml
 %pom_remove_dep org.eclipse.swt.gtk.linux:
 
 # Alias
-%mvn_alias org.pushingpixels:%{name} org.pushing-pixels:%{name}
+%mvn_alias org.pushingpixels:%{name} "org.pushing-pixels:%{name}"
 
 # Fix jar name
 %mvn_file :%{name} %{name}
