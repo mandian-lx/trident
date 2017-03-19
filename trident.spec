@@ -29,7 +29,7 @@ code repository.
 
 
 %files -f .mfiles
-%if %without test_jar
+%if %with test_jar
 %{_javadir}/%{name}-tst.jar
 %endif
 
@@ -80,7 +80,7 @@ export CLASSPATH=$(build-classpath swt)
 # index the jars (fix jar-not-indexed warning)
 pushd www/webstart
 %jar -i %{name}.jar
-%if %without test_jar
+%if %with test_jar
 %jar -i %{name}-tst.jar
 %endif
 popd
@@ -92,7 +92,7 @@ popd
 %mvn_install -J doc
 
 # test jar
-%if %without test_jar
+%if %with test_jar
 install -pm 0644 www/webstart/%{name}-tst.jar %{buildroot}%{_javadir}/
 %endif
 
