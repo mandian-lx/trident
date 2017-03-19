@@ -13,6 +13,7 @@ URL:		https://kenai.com/projects/trident
 Source0:	https://kenai.com/projects/%{name}/downloads/download/version%20%{version}%20-%20stable/%{name}-all.zip
 Source1:	http://central.maven.org/maven2/org/pushingpixels/%{name}/%{version}/%{name}-%{version}.pom
 
+BuildRequires:	maven-local
 BuildRequires:	jpackage-utils
 BuildRequires:	ant
 BuildRequires:	eclipse-swt
